@@ -1,0 +1,16 @@
+docker.exe :  Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Stopping 
+위치 C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\scripts\Test-Portfolio.ps1:27 문자:11
++     try { & $dockerPath @prefix @Arguments *> $logPath; $exitCode=$gl ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container port...api-1 Stopping :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Stopped 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Removing 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Removed 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Stopping 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Stopped 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Removing 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Removed 
+ Network portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8_default Removing 
+ Network portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8_default Removed 

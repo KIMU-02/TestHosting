@@ -1,0 +1,94 @@
+{
+    "started_at":  "2026-09-12T09:54:59.6785807Z",
+    "status":  "passed",
+    "project":  "portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8",
+    "stages":  [
+                   {
+                       "elapsed_ms":  170.4008,
+                       "name":  "01-config",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  6099.3830000000007,
+                       "name":  "02-build",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  3219.9732000000004,
+                       "name":  "03-database",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  1039.6173000000001,
+                       "name":  "04-unit",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  1675.303,
+                       "name":  "05-integration",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  3739.7513000000004,
+                       "name":  "06-api",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  904.9248,
+                       "name":  "07-checkout",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  1311.1543000000001,
+                       "name":  "08-monitoring",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  1328.865,
+                       "name":  "09-recovery-guards",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  453.0573,
+                       "name":  "10-http",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  572.9631,
+                       "name":  "11-dump",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  442.01250000000005,
+                       "name":  "12-create-restore-db",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  429.7988,
+                       "name":  "13-restore",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  492.6222,
+                       "name":  "14-copy-verification",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  464.74870000000004,
+                       "name":  "15-verify-restored-db",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  379.58410000000003,
+                       "name":  "container-logs",
+                       "exit_code":  0
+                   },
+                   {
+                       "elapsed_ms":  941.5112,
+                       "name":  "cleanup",
+                       "exit_code":  0
+                   }
+               ],
+    "cleanup":  "removed",
+    "finished_at":  "2026-09-12T09:55:23.5727010Z"
+}

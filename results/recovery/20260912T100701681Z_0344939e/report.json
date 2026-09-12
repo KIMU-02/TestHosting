@@ -1,0 +1,33 @@
+{
+    "started_at":  "2026-09-12T10:07:01.7100593Z",
+    "status":  "verified",
+    "environment":  "docker-compose",
+    "source_database":  "portfolio",
+    "restore_database":  "portfolio_restore_20260912t100701681z_0344939e",
+    "source_modified":  false,
+    "steps":  [
+                  "backup-created",
+                  "restore-completed",
+                  "validation-passed"
+              ],
+    "cleanup":  "removed",
+    "tool_version":  "pg_dump (PostgreSQL) 18.4 (Debian 18.4-1.pgdg12+1)",
+    "server_version":  "18.4 (Debian 18.4-1.pgdg12+1)",
+    "backup_ms":  1211.7386000000001,
+    "backup_bytes":  2017382,
+    "sha256":  "6620130a30ca50d4e4570f4fe86864b692b16327fc69ae974bd3202462233607",
+    "restore_ms":  1148.8687,
+    "validation":  {
+                       "orders":  300002,
+                       "historical_orders":  300000,
+                       "paid_checkout_orders":  0,
+                       "cancelled_checkout_orders":  2,
+                       "products":  1,
+                       "stock_units":  10,
+                       "request_keys":  1,
+                       "constraints_valid":  true,
+                       "identity_and_write_probe":  "passed; transaction rolled back"
+                   },
+    "validation_ms":  547.17090000000007,
+    "finished_at":  "2026-09-12T10:07:06.8764473Z"
+}

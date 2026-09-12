@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stockroom · 주문·재고 관리</title>
+  <meta name="description" content="주문 생성, 재고 확인, PostgreSQL 성능 실측을 한곳에서 확인하는 로컬 관리 화면">
+  <link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/dashboard.css"><link rel="stylesheet" href="/benchmarks.css">
+  <script src="/benchmarks.js" defer></script><script src="/dashboard.js" defer></script><script src="/monitoring.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 이동</a>
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="Stockroom 홈"><img src="/favicon.svg" width="32" height="32" alt="">Stockroom<span>LAB</span></a>
+  <div class="workspace-label">WORKSPACE</div>
+  <nav aria-label="주요 메뉴"><a href="#main" class="nav-active">◫ <span>주문·재고 관리</span></a><a href="#monitoring">◎ <span>운영 상태</span></a><a href="#measurements">▥ <span>성능 실험 결과</span></a></nav>
+  <div class="sidebar-note"><strong>PostgreSQL portfolio</strong><span>로컬 주문·재고 실험실</span><small>실험 데이터로 운영합니다.</small></div>
+</aside>
+<main id="main">
+  <header class="topbar"><span>작업 공간 <span class="slash">/</span> 운영 현황</span><span class="local-tag">LOCAL WORKSPACE</span></header>
+  <div class="content">
+    <div class="page-heading"><div><p class="eyebrow">ORDER & INVENTORY</p><h1>주문·재고 관리</h1><p class="subtitle">재고를 확인하고 새로운 주문을 만들어 보세요.</p></div><button id="refresh" class="button secondary" type="button">↻ 새로고침</button></div>
+    <div class="connection-line"><span id="connection" class="pill neutral">연결 확인 중</span><span id="updated">데이터를 불러오고 있습니다.</span></div>
+    <div id="global-error" class="notice error" role="alert" hidden></div>
+    <section class="metrics" aria-label="현재 운영 현황">
+      <article class="metric"><span>현재 판매 가능 재고</span><div><strong id="stock">—</strong><span>개</span></div><p>등록 상품의 잔여 수량</p></article>
+      <article class="metric"><span>직접 생성한 주문</span><div><strong id="checkout-count">—</strong><span>건</span></div><p>전체 고객 · 결제 완료 주문</p></article>
+      <article class="metric"><span>주문한 상품 수량</span><div><strong id="sold">—</strong><span>개</span></div><p>직접 생성한 주문의 수량 합계</p></article>
+      <article class="metric"><span>조회 실험 데이터</span><div><strong id="history">—</strong><span>건</span></div><p>미리 생성한 가상 과거 주문</p></article>
+    </section>
+    <div class="operations">
+      <section class="panel order-panel" aria-labelledby="create-title">
+        <div class="panel-heading"><h2 id="create-title">새 주문</h2><span class="pill blue">재고 확인 후 처리</span></div>
+        <form id="order-form">
+          <label for="product">상품</label><select id="product" name="product" required disabled><option>불러오는 중…</option></select>
+          <p class="field-note" id="product-detail">상품 정보를 확인하고 있습니다.</p>
+          <div class="two-fields"><div><label for="customer">고객 번호</label><input id="customer" type="number" min="1" max="2147483647" step="1" value="1" required></div><div><label for="quantity">주문 수량</label><input id="quantity" type="number" min="1" max="10000" step="1" value="1" required></div></div>
+          <div class="total"><span>주문 금액 <small>USD</small></span><strong id="total">—</strong></div>
+          <button class="button primary" id="submit-order" type="submit" disabled>주문 생성하기 <span aria-hidden="true">→</span></button>
+          <p class="form-footnote">실제 결제는 발생하지 않습니다. 주문이 완료되면 재고가 차감됩니다.</p>
+          <div id="order-message" class="notice" role="status" aria-live="polite" hidden></div>
+        </form>
+      </section>
+      <section class="panel table-panel" aria-labelledby="orders-title">
+        <div class="panel-heading"><div><h2 id="orders-title">최근 주문</h2><p id="list-subtitle">고객별 최신 50건 · 한국 시간</p></div><form id="filter-form" class="filter"><label for="filter-customer">고객 번호</label><div><input id="filter-customer" type="number" min="1" max="2147483647" step="1" value="1" required aria-label="조회할 고객 번호"><button class="button secondary" type="submit">조회</button></div></form></div>
+        <div class="table-scroll"><table><thead><tr><th scope="col">주문 번호</th><th scope="col">상태</th><th scope="col">수량</th><th scope="col">금액 (USD)</th><th scope="col">생성 시각</th></tr></thead><tbody id="orders-body"><tr><td colspan="5" class="empty">주문을 불러오는 중입니다.</td></tr></tbody></table></div>
+        <div class="table-footer"><span id="list-count">—</span><span>가상 과거 주문은 ‘실험 데이터’로 표시합니다.</span></div>
+      </section>
+    </div>
+    <section id="monitoring" class="panel experiment-panel" aria-labelledby="monitor-title">
+      <div class="panel-heading"><div><p class="eyebrow">LIVE OPERATIONS</p><h2 id="monitor-title">현재 운영 상태</h2></div><button id="monitor-refresh" type="button" class="button secondary">상태 확인</button></div>
+      <p class="subtitle" id="monitor-status" role="status">상태 확인 버튼을 눌러 현재 값을 조회하세요.</p>
+      <div class="detail-body"><label><input type="checkbox" id="monitor-auto"> 5초마다 갱신 · 성능 실험 중에는 꺼두세요</label>
+        <p class="field-note">현재 API 프로세스의 최근 완료 요청 최대 1,000건 기준입니다. 상태 확인·정적 파일 요청은 제외하며, API 재시작 시 초기화됩니다.</p>
+        <div id="monitor-data" hidden>
+          <div id="monitor-cards" class="bench-scorecards"></div>
+          <p id="monitor-window" class="field-note"></p>
+          <h3>요청 경로별 응답</h3><div id="monitor-routes" class="bench-table-wrap"></div>
+          <h3>PostgreSQL 연결과 잠금</h3><p id="monitor-db" class="field-note"></p><div id="monitor-locks" class="bench-table-wrap"></div>
+          <h3>최근 오류 · 최대 10건</h3><div id="monitor-errors" class="bench-table-wrap"></div>
+        </div>
+        <details class="bench-details"><summary>이상이 보이면 무엇부터 확인하나요?</summary><div class="detail-body"><ol><li>DB 확인 불가: Docker Desktop에서 db 컨테이너와 로그를 확인합니다.</li><li>잠금 대기: 아래 대기 PID와 차단 PID를 확인합니다. 원인을 확인하기 전에 세션을 강제 종료하지 마세요.</li><li>5xx 증가: 요청 ID로 API 로그를 찾아 같은 요청의 상태를 확인합니다.</li><li>4xx만 증가: 품절·입력 오류·중복 키 충돌일 수 있습니다. 서버 장애와 구분합니다.</li></ol><p class="field-note">아래 성능 실험 보고서는 과거 실측입니다. 여기의 운영 p95는 실제 요청 구성과 DB 연결 시간에 영향을 받습니다.</p></div></details>
+      </div>
+    </section>
+    <section id="measurements" class="panel experiment-panel" aria-labelledby="experiment-title">
+      <div class="panel-heading"><div><p class="eyebrow">PERFORMANCE REPORT</p><h2 id="experiment-title">개선 전후, 실제 측정 결과</h2></div><div class="export-actions"><button id="export-csv" type="button" class="button secondary" disabled>원본 CSV ↓</button><button id="export-summary" type="button" class="button secondary" disabled>요약 JSON ↓</button></div></div>
+      <p id="measurement-state" class="subtitle">저장된 Docker 측정을 불러오고 있습니다.</p>
+      <div id="measurement-content" hidden>
+        <div class="bench-controls"><div><label for="bench-customer">비교 대상</label><select id="bench-customer"><option value="all">전체 고객 혼합</option></select></div><div><label for="bench-metric">응답 시간 지표</label><select id="bench-metric"><option value="p95_ms">p95 · 느린 쪽 요청</option><option value="p50_ms">p50 · 중앙값</option><option value="mean_ms">평균</option></select></div><p id="metric-explanation">100개 요청 중 약 95개가 이 시간 이내에 완료되었습니다.</p></div>
+        <div id="bench-scorecards" class="bench-scorecards" aria-live="polite"></div>
+        <div class="experiment-grid"><div><h3 id="chart-title">최근 주문 조회 · p95</h3><p class="field-note">같은 고객·SQL·데이터 · 두 막대는 0부터 같은 축 사용</p><div class="bar-row"><span>인덱스 전</span><div class="track"><div id="before-bar" class="bar before"></div></div><strong id="before-ms">—</strong></div><div class="bar-row"><span>인덱스 후</span><div class="track"><div id="after-bar" class="bar after"></div></div><strong id="after-ms">—</strong></div><div id="bench-stats" class="bench-stat-table"></div></div>
+        <div class="correctness"><h3>동시 주문 · 초과 판매</h3><div class="correctness-values"><div><span>개선 전</span><strong id="unsafe-sold">—</strong></div><span class="arrow" aria-hidden="true">→</span><div><span>개선 후</span><strong id="safe-sold">—</strong></div></div><p id="stock-rounds" class="field-note"></p></div></div>
+        <div class="bench-deep-grid">
+          <section class="bench-box"><div class="bench-box-title"><h3>반복 측정 편차</h3><span class="legend"><i class="before"></i>전 <i class="after"></i>후</span></div><p class="field-note">전체 고객 혼합 · 구간별 p95 · 실행 순서 그대로</p><div id="segment-chart" class="segment-chart"></div><p id="segment-note" class="field-note"></p></section>
+          <section class="bench-box"><h3>고객마다 차이가 있을까요?</h3><p class="field-note">전체 평균에 가려진 고객별 조회 지연 · p95</p><div id="customer-comparison" class="bench-table-wrap"></div></section>
+        </div>
+        <details class="bench-details" open><summary>왜 빨라졌나요? <span>실행 계획 비교</span></summary><div class="detail-body"><p id="plan-context" class="field-note"></p><div id="plan-comparison" class="plan-comparison"></div><p class="field-note">실행 계획의 시간은 별도로 실행한 EXPLAIN 값입니다. 위 반복 측정의 p95와 직접 비교하지 않습니다. 버퍼 값은 최상위 노드 기준이며 하위 노드를 중복 합산하지 않습니다.</p></div></details>
+        <details class="bench-details"><summary>초과 판매가 정말 없어졌나요? <span>회차별 정합성 검증</span></summary><div class="detail-body"><p id="stock-context" class="field-note"></p><div id="stock-trials" class="bench-table-wrap"></div></div></details>
+        <details class="bench-details"><summary>어떤 조건으로 측정했나요? <span>환경 · 방법 · 한계</span></summary><div class="detail-body"><dl id="bench-conditions" class="bench-conditions"></dl><div class="method-note"><strong>결과를 해석할 때</strong><p>인덱스 존재 여부만 바꾸고, 동일 SQL과 고객 순서를 사용했습니다. 각 구간에서 워밍업 후 인덱스 전·후·후·전(ABBA)을 반복했습니다.</p><p>OS 캐시를 비우지 않았으며 인덱스 생성도 캐시에 영향을 줍니다. 단일 연결의 조회 지연 시간으로, 전체 서비스 처리량·인덱스 쓰기 비용·통계적 유의성을 측정한 결과는 아닙니다.</p></div></div></details>
+        <div class="measurement-meta" id="measurement-meta"></div>
+        <p class="archive-note">이 결과는 표시된 시각의 코드로 측정한 기록입니다. 현재 화면의 실시간 성능이 아니며, 같은 환경에서도 결과는 달라질 수 있습니다.</p>
+      </div>
+    </section>
+    <footer>Stockroom Lab <span>주문 · 정합성 · 성능을 확인하는 작업 공간</span></footer>
+  </div>
+</main>
+</body>
+</html>

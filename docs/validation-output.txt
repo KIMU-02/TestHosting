@@ -1,0 +1,63 @@
+2026-09-11 19:33:22.726 KST [26268] LOG:  starting PostgreSQL 18.4 on x86_64-windows, compiled by msvc-19.44.35226, 64-bit
+2026-09-11 19:33:22.728 KST [26268] LOG:  listening on IPv4 address "127.0.0.1", port 55439
+2026-09-11 19:33:22.856 KST [27208] LOG:  database system was shut down at 2026-09-11 19:32:52 KST
+2026-09-11 19:33:22.886 KST [12128] FATAL:  the database system is starting up
+2026-09-11 19:33:22.900 KST [26268] LOG:  database system is ready to accept connections
+✔ p95 uses nearest rank and leaves samples untouched (1.4172ms)
+✔ invalid samples cannot become fabricated metrics (0.5596ms)
+✔ nonnegative inventory alone does not prove correctness (0.9226ms)
+✔ barrier prevents progress until all workers arrive (4.7033ms)
+✔ barrier times out rather than hanging on failed workers (26.4836ms)
+✔ input bounds reject malformed workload configuration (0.8984ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 171.1703
+✔ controlled lost update oversells while CHECK still holds (1331.7181ms)
+✔ atomic decrement preserves inventory under the same concurrent reads (888.4416ms)
+2026-09-11 19:33:26.583 KST [18508] ERROR:  new row for relation "orders" violates check constraint "orders_customer_id_check"
+2026-09-11 19:33:26.583 KST [18508] DETAIL:  Failing row contains (10043, -1, 1, 1, 5000, paid, checkout, 2026-09-11 10:33:26.582676+00).
+2026-09-11 19:33:26.583 KST [18508] STATEMENT:  
+	      INSERT INTO lab.orders(customer_id, product_id, quantity, total_cents, status, source)
+	      VALUES ($1,$2,$3,$4,'paid','checkout') RETURNING id
+✔ order insert failure rolls back its inventory decrement (10.2812ms)
+✔ multi-unit order and stock exhaustion remain atomic (7.6077ms)
+✔ covering index does not change any tested result rows or ordering (41.4587ms)
+✔ API shared guard refuses access during exclusive experiments (89.2046ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2606.0388
+Seeded 300000 historical orders. Replaced only schema lab.
+Stock correctness round 1: unsafe
+Stock correctness round 1: safe
+Stock correctness round 2: safe
+Stock correctness round 2: unsafe
+Stock correctness round 3: unsafe
+Stock correctness round 3: safe
+Query segment 1: baseline
+Query segment 2: indexed
+Query segment 3: indexed
+Query segment 4: baseline
+Query segment 5: baseline
+Query segment 6: indexed
+Query segment 7: indexed
+Query segment 8: baseline
+Completed. Results: C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\results\2026-09-11T10-33-30-674Z-ab1a409b
+2026-09-11 19:34:44.641 KST [26268] LOG:  received fast shutdown request
+waiting for server to shut down...2026-09-11 19:34:44.643 KST [26268] LOG:  aborting any active transactions
+.2026-09-11 19:34:44.668 KST [26268] LOG:  background worker "logical replication launcher" (PID 41348) exited with exit code 1
+2026-09-11 19:34:44.669 KST [36712] LOG:  shutting down
+2026-09-11 19:34:44.670 KST [36712] LOG:  checkpoint starting: shutdown immediate
+2026-09-11 19:34:45.176 KST [36712] LOG:  checkpoint complete: wrote 4992 buffers (30.5%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 9 recycled; write=0.264 s, sync=0.175 s, total=0.508 s; sync files=337, longest=0.020 s, average=0.001 s; distance=140412 kB, estimate=140412 kB; lsn=0/A1104F8, redo lsn=0/A1104F8
+..2026-09-11 19:34:47.207 KST [26268] LOG:  database system is shut down
+ done
+server stopped

@@ -1,0 +1,58 @@
+docker.exe :  Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner-run-8653d2a1bfae Creating 
+위치 C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\scripts\Test-Portfolio.ps1:27 문자:11
++     try { & $dockerPath @prefix @Arguments *> $logPath; $exitCode=$gl ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container port...1bfae Creating :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner-run-8653d2a1bfae Created 
+
+> postgres-order-lab@1.0.0 test:integration
+> node --test --test-concurrency=1 test/integration.test.mjs
+
+TAP version 13
+# Subtest: controlled lost update oversells while CHECK still holds
+ok 1 - controlled lost update oversells while CHECK still holds
+  ---
+  duration_ms: 359.012654
+  type: 'test'
+  ...
+# Subtest: atomic decrement preserves inventory under the same concurrent reads
+ok 2 - atomic decrement preserves inventory under the same concurrent reads
+  ---
+  duration_ms: 128.833899
+  type: 'test'
+  ...
+# Subtest: order insert failure rolls back its inventory decrement
+ok 3 - order insert failure rolls back its inventory decrement
+  ---
+  duration_ms: 7.99592
+  type: 'test'
+  ...
+# Subtest: multi-unit order and stock exhaustion remain atomic
+ok 4 - multi-unit order and stock exhaustion remain atomic
+  ---
+  duration_ms: 6.53963
+  type: 'test'
+  ...
+# Subtest: covering index does not change any tested result rows or ordering
+ok 5 - covering index does not change any tested result rows or ordering
+  ---
+  duration_ms: 28.946702
+  type: 'test'
+  ...
+# Subtest: API shared guard refuses access during exclusive experiments
+ok 6 - API shared guard refuses access during exclusive experiments
+  ---
+  duration_ms: 13.802416
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 663.30335

@@ -1,0 +1,12 @@
+{
+  "run": "2026-09-11T14-12-27-197Z-c68bbddc",
+  "audited_at": "2026-09-11T14:14:55.947Z",
+  "status": "passed",
+  "checks": [
+    "Delivered source matches measured SHA-256",
+    "Both summary statistics recomputed from raw samples",
+    "Identical customer sequence and sample count in all 8 segments",
+    "CSV contains all 960 observations",
+    "29 local documentation links resolve"
+  ]
+}

@@ -1,0 +1,100 @@
+docker.exe :  Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner-run-7fbcb9a16532 Creating 
+위치 C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\scripts\Test-Portfolio.ps1:27 문자:11
++     try { & $dockerPath @prefix @Arguments *> $logPath; $exitCode=$gl ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container port...16532 Creating :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner-run-7fbcb9a16532 Created 
+
+> postgres-order-lab@1.0.0 test
+> node --test test/unit.test.mjs test/dashboard.test.mjs test/monitoring.test.mjs
+
+TAP version 13
+# Subtest: archive selects a completed Docker run and exposes only public fields
+ok 1 - archive selects a completed Docker run and exposes only public fields
+  ---
+  duration_ms: 30.49781
+  type: 'test'
+  ...
+# Subtest: a missing archive is an empty state, not fake measurements
+ok 2 - a missing archive is an empty state, not fake measurements
+  ---
+  duration_ms: 1.619236
+  type: 'test'
+  ...
+# Subtest: detail export preserves samples, detects changed results, and avoids double-counting buffers
+ok 3 - detail export preserves samples, detects changed results, and avoids double-counting buffers
+  ---
+  duration_ms: 0.880614
+  type: 'test'
+  ...
+# Subtest: bounded window uses only actual samples and separates 4xx from 5xx
+ok 4 - bounded window uses only actual samples and separates 4xx from 5xx
+  ---
+  duration_ms: 1.628244
+  type: 'test'
+  ...
+# Subtest: request logs exclude identifiers in URLs and finish/close is counted once
+ok 5 - request logs exclude identifiers in URLs and finish/close is counted once
+  ---
+  duration_ms: 1.661645
+  type: 'test'
+  ...
+# Subtest: polling is excluded and aborted requests are not successful samples
+ok 6 - polling is excluded and aborted requests are not successful samples
+  ---
+  duration_ms: 0.429009
+  type: 'test'
+  ...
+# Subtest: DB failure is unknown, never fabricated zero connections
+ok 7 - DB failure is unknown, never fabricated zero connections
+  ---
+  duration_ms: 1.01431
+  type: 'test'
+  ...
+# Subtest: p95 uses nearest rank and leaves samples untouched
+ok 8 - p95 uses nearest rank and leaves samples untouched
+  ---
+  duration_ms: 1.113034
+  type: 'test'
+  ...
+# Subtest: invalid samples cannot become fabricated metrics
+ok 9 - invalid samples cannot become fabricated metrics
+  ---
+  duration_ms: 0.29746
+  type: 'test'
+  ...
+# Subtest: nonnegative inventory alone does not prove correctness
+ok 10 - nonnegative inventory alone does not prove correctness
+  ---
+  duration_ms: 0.74298
+  type: 'test'
+  ...
+# Subtest: barrier prevents progress until all workers arrive
+ok 11 - barrier prevents progress until all workers arrive
+  ---
+  duration_ms: 5.851966
+  type: 'test'
+  ...
+# Subtest: barrier times out rather than hanging on failed workers
+ok 12 - barrier times out rather than hanging on failed workers
+  ---
+  duration_ms: 21.629123
+  type: 'test'
+  ...
+# Subtest: input bounds reject malformed workload configuration
+ok 13 - input bounds reject malformed workload configuration
+  ---
+  duration_ms: 0.48289
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 110.319273

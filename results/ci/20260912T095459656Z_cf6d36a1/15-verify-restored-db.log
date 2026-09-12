@@ -1,0 +1,1 @@
+{"orders" : 10000, "historical_orders" : 10000, "paid_checkout_orders" : 0, "cancelled_checkout_orders" : 0, "products" : 1, "stock_units" : 10, "request_keys" : 0, "constraints_valid" : true, "identity_and_write_probe" : "passed; transaction rolled back"}

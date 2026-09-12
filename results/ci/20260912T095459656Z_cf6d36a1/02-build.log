@@ -1,0 +1,112 @@
+docker.exe :  Image portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api Building 
+위치 C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\scripts\Test-Portfolio.ps1:27 문자:11
++     try { & $dockerPath @prefix @Arguments *> $logPath; $exitCode=$gl ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image portfoli...8-api Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.29kB 0.0s done
+#1 DONE 0.0s
+
+#2 [runner internal] load build definition from Dockerfile
+#2 transferring dockerfile: 280B done
+#2 DONE 0.0s
+
+#3 [api internal] load metadata for docker.io/library/node:22-bookworm-slim
+#3 ...
+
+#4 [auth] library/node:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [api internal] load metadata for docker.io/library/node:22-bookworm-slim
+#3 DONE 1.5s
+
+#5 [api internal] load .dockerignore
+#5 transferring context: 71B done
+#5 DONE 0.0s
+
+#6 [runner  1/10] FROM docker.io/library/node:22-bookworm-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5
+#6 resolve docker.io/library/node:22-bookworm-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5 0.0s done
+#6 DONE 0.0s
+
+#7 [runner internal] load build context
+#7 transferring context: 52.88kB 0.0s done
+#7 DONE 0.0s
+
+#8 [runner  2/10] WORKDIR /app
+#8 CACHED
+
+#9 [api  3/10] COPY package*.json ./
+#9 DONE 0.0s
+
+#10 [api  4/10] RUN npm ci --omit=dev
+#10 1.103 
+#10 1.103 added 14 packages, and audited 15 packages in 812ms
+#10 1.104 
+#10 1.104 found 0 vulnerabilities
+#10 1.106 npm notice
+#10 1.106 npm notice New major version of npm available! 10.9.8 -> 12.0.2
+#10 1.106 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+#10 1.106 npm notice To update run: npm install -g npm@12.0.2
+#10 1.106 npm notice
+#10 DONE 1.2s
+
+#11 [runner  5/10] COPY src ./src
+#11 DONE 0.0s
+
+#11 [api  5/10] COPY src ./src
+#11 DONE 0.0s
+
+#12 [runner  6/10] COPY sql ./sql
+#12 DONE 0.0s
+
+#13 [runner  7/10] COPY test ./test
+#13 DONE 0.0s
+
+#14 [runner  8/10] COPY public ./public
+#14 DONE 0.0s
+
+#14 [api  8/10] COPY public ./public
+#14 DONE 0.0s
+
+#15 [runner  9/10] COPY compose.yaml Dockerfile ./
+#15 DONE 0.0s
+
+#16 [runner 10/10] RUN mkdir -p /app/results
+#16 DONE 0.4s
+
+#16 [runner 10/10] RUN mkdir -p /app/results
+#16 DONE 0.4s
+
+#17 [api] exporting to image
+#17 exporting layers
+#17 exporting layers 0.4s done
+#17 exporting manifest sha256:5654fdd50e600b63a8bb938a26809402507544f0661175974c3a67eb6d40fd30 0.0s done
+#17 exporting config sha256:fea34e9f47c7d42ba28be055a3896550d86cdf8d23b0abc220f5aa94d76eba14 0.0s done
+#17 exporting attestation manifest sha256:4e516377b4d7ccb7bb6de705c7542ba667a2e82f508b6e3744123e73cd8fcd02
+#17 exporting attestation manifest sha256:4e516377b4d7ccb7bb6de705c7542ba667a2e82f508b6e3744123e73cd8fcd02 0.0s done
+#17 exporting manifest list sha256:8e1acdaa27b8ac87767808e85cbbb84c0d613c8d5f08d40fd923df6b71553b7d 0.0s done
+#17 naming to docker.io/library/portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api:latest done
+#17 unpacking to docker.io/library/portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api:latest
+#17 unpacking to docker.io/library/portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api:latest 0.4s done
+#17 DONE 1.0s
+
+#18 [runner] exporting to image
+#18 exporting layers 0.4s done
+#18 exporting manifest sha256:f824a622f3a021ecda706d08631d2c742fd00b9a82b78aa53d28ae2815fa323b 0.0s done
+#18 exporting config sha256:898aa42028e10f40b57d615508a4d7f1e3acefc073ececcfb572bc608ecba1df 0.0s done
+#18 exporting attestation manifest sha256:ef85646c717041cd1612d65efe5ca9165fd206a97f05db8a31a82fbe32e26a3e 0.0s done
+#18 exporting manifest list sha256:05157b5848a9ab0422d5fb1890eefea67474751ba19a063218a996969cef84c2 0.0s done
+#18 naming to docker.io/library/portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner:latest done
+#18 unpacking to docker.io/library/portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner:latest 0.4s done
+#18 DONE 1.0s
+
+#19 [api] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [runner] resolving provenance for metadata file
+#20 DONE 0.0s
+ Image portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api Built 
+ Image portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner Built 

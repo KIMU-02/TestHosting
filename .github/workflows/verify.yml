@@ -1,0 +1,21 @@
+name: verify
+on: [workflow_dispatch]
+jobs:
+  compose-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose build
+      - run: docker compose up -d db
+      - run: docker compose run --rm runner npm test
+      - run: docker compose run --rm runner npm run test:integration
+      - run: docker compose run --rm -e ROWS=10000 runner npm run seed
+      - run: docker compose run --rm -e SAMPLES=20 -e ROUNDS=1 -e STOCK_ROUNDS=1 runner npm run bench
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actual-smoke-results
+          path: results/
+      - if: always()
+        run: docker compose down -v

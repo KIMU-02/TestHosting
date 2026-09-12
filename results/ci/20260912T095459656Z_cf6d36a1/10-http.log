@@ -1,0 +1,10 @@
+PASS liveness, live DB monitoring and error request ID correlation
+PASS asset /
+PASS asset /dashboard.css
+PASS asset /dashboard.js
+PASS asset /benchmarks.js
+PASS asset /benchmarks.css
+PASS asset /favicon.svg
+PASS live stock and order overview
+PASS customer order list and input validation
+PASS stored measurements or explicit empty state

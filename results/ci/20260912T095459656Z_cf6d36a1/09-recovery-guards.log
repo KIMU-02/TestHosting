@@ -1,0 +1,28 @@
+docker.exe :  Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner-run-b0e1b88e35e0 Creating 
+위치 C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\scripts\Test-Portfolio.ps1:27 문자:11
++     try { & $dockerPath @prefix @Arguments *> $logPath; $exitCode=$gl ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container port...e35e0 Creating :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-runner-run-b0e1b88e35e0 Created 
+
+> postgres-order-lab@1.0.0 test:recovery-sql
+> node --test test/recovery.test.mjs
+
+TAP version 13
+# Subtest: recovery SQL guards original DB, validates a disposable fixture, and rejects corrupt mappings
+ok 1 - recovery SQL guards original DB, validates a disposable fixture, and rejects corrupt mappings
+  ---
+  duration_ms: 149.595609
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 243.732946

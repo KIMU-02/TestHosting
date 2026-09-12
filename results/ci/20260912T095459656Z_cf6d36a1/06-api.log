@@ -1,0 +1,17 @@
+docker.exe :  Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Running 
+위치 C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\scripts\Test-Portfolio.ps1:27 문자:11
++     try { & $dockerPath @prefix @Arguments *> $logPath; $exitCode=$gl ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container port...8-db-1 Running :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Creating 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Created 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Waiting 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Healthy 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Starting 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Started 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Waiting 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Waiting 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Healthy 
+ Container portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-api-1 Healthy 

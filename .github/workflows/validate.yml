@@ -1,0 +1,32 @@
+name: PostgreSQL portfolio validation
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-command-status:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Verify Windows PowerShell command exit handling
+        shell: powershell
+        run: ./test/powershell-runner.ps1
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate isolated Docker stack
+        shell: pwsh
+        run: ./scripts/Test-Portfolio.ps1
+      - name: Save actual validation logs
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: portfolio-validation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/ci/
+          retention-days: 14
+          if-no-files-found: warn

@@ -1,0 +1,18 @@
+{
+  "name": "postgres-order-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "seed": "node src/seed.mjs",
+    "bench": "node src/benchmark.mjs",
+    "test": "node --test test/unit.test.mjs test/dashboard.test.mjs test/monitoring.test.mjs",
+    "test:integration": "node --test --test-concurrency=1 test/integration.test.mjs",
+    "test:checkout": "node --test test/checkout.test.mjs",
+    "test:monitoring": "node --test test/monitoring-db.test.mjs",
+    "test:recovery-sql": "node --test test/recovery.test.mjs"
+  },
+  "dependencies": { "pg": "8.16.3" }
+}

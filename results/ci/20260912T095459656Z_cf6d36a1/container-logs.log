@@ -1,0 +1,170 @@
+db-1   | The files belonging to this database system will be owned by user "postgres".
+api-1  | Dashboard http://localhost:8080 (safe orders only)
+db-1   | This user must also own the server process.
+db-1   | 
+api-1  | {"event":"http_request","request_id":"cf868d00-f580-45f4-9459-73e53a60043e","route":"POST /orders","status":201,"elapsed_ms":15.44832899999983,"at":"2026-09-12T09:55:16.494Z"}
+api-1  | {"event":"http_request","request_id":"163798bd-099b-4f4f-9000-e6e9cf41b2b2","route":"POST /orders","status":200,"elapsed_ms":11.302671999999802,"at":"2026-09-12T09:55:16.513Z"}
+api-1  | {"event":"http_request","request_id":"602312b9-4090-454f-a047-ac94adf97d1b","route":"POST /orders","status":409,"elapsed_ms":11.945275000000038,"at":"2026-09-12T09:55:16.530Z"}
+api-1  | {"event":"http_request","request_id":"339f9c80-928c-445a-bd06-1dde0c03e140","route":"POST /orders/:id/cancel","status":200,"elapsed_ms":13.637752000000091,"at":"2026-09-12T09:55:16.547Z"}
+db-1   | The database cluster will be initialized with locale "en_US.utf8".
+db-1   | The default database encoding has accordingly been set to "UTF8".
+db-1   | The default text search configuration will be set to "english".
+api-1  | {"event":"http_request","request_id":"41559b45-a068-4d2b-8fb5-3db110ea6443","route":"POST /orders/:id/cancel","status":200,"elapsed_ms":12.578627000000324,"at":"2026-09-12T09:55:16.564Z"}
+api-1  | {"event":"http_request","request_id":"d9973437-cbf6-42d9-bfcb-14e720888084","route":"GET /orders","status":400,"elapsed_ms":0.42434099999991304,"at":"2026-09-12T09:55:19.673Z"}
+api-1  | {"event":"http_request","request_id":"d2fa905e-c06a-421a-b37f-9772c0fb8420","route":"GET /api/overview","status":200,"elapsed_ms":12.377843000000212,"at":"2026-09-12T09:55:19.734Z"}
+db-1   | 
+api-1  | {"event":"http_request","request_id":"cc7ebeed-114f-47df-a582-6f5257f254f8","route":"GET /api/orders","status":200,"elapsed_ms":11.950033000000076,"at":"2026-09-12T09:55:19.748Z"}
+api-1  | {"event":"http_request","request_id":"d44c685c-de66-4bd3-9101-d5a542dcd45e","route":"GET /api/orders","status":400,"elapsed_ms":0.3508539999993445,"at":"2026-09-12T09:55:19.750Z"}
+api-1  | {"event":"http_request","request_id":"7f9aeac9-6989-4b5b-90fb-3e5595c0712b","route":"GET /api/measurements","status":200,"elapsed_ms":1.0073759999995673,"at":"2026-09-12T09:55:19.753Z"}
+db-1   | Data page checksums are enabled.
+db-1   | 
+db-1   | fixing permissions on existing directory /var/lib/postgresql/18/docker ... ok
+db-1   | creating subdirectories ... ok
+db-1   | selecting dynamic shared memory implementation ... posix
+db-1   | selecting default "max_connections" ... 100
+db-1   | selecting default "shared_buffers" ... 128MB
+db-1   | selecting default time zone ... Etc/UTC
+db-1   | creating configuration files ... ok
+db-1   | running bootstrap script ... ok
+db-1   | performing post-bootstrap initialization ... ok
+db-1   | syncing data to disk ... ok
+db-1   | initdb: warning: enabling "trust" authentication for local connections
+db-1   | 
+db-1   | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1   | 
+db-1   | Success. You can now start the database server using:
+db-1   | 
+db-1   |     pg_ctl -D /var/lib/postgresql/18/docker -l logfile start
+db-1   | 
+db-1   | waiting for server to start....2026-09-12 09:55:07.605 UTC [53] LOG:  starting PostgreSQL 18.4 (Debian 18.4-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+db-1   | 2026-09-12 09:55:07.608 UTC [53] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1   | 2026-09-12 09:55:07.611 UTC [59] LOG:  database system was shut down at 2026-09-12 09:55:07 UTC
+db-1   | 2026-09-12 09:55:07.615 UTC [53] LOG:  database system is ready to accept connections
+db-1   |  done
+db-1   | server started
+db-1   | CREATE DATABASE
+db-1   | 
+db-1   | 
+db-1   | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1   | 
+db-1   | waiting for server to shut down....2026-09-12 09:55:07.844 UTC [53] LOG:  received fast shutdown request
+db-1   | 2026-09-12 09:55:07.844 UTC [53] LOG:  aborting any active transactions
+db-1   | 2026-09-12 09:55:07.847 UTC [53] LOG:  background worker "logical replication launcher" (PID 62) exited with exit code 1
+db-1   | 2026-09-12 09:55:07.848 UTC [57] LOG:  shutting down
+db-1   | 2026-09-12 09:55:07.848 UTC [57] LOG:  checkpoint starting: shutdown immediate
+db-1   | 2026-09-12 09:55:07.858 UTC [57] LOG:  checkpoint complete: wrote 941 buffers (5.7%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.010 s, sync=0.001 s, total=0.011 s; sync files=303, longest=0.001 s, average=0.000 s; distance=4335 kB, estimate=4335 kB; lsn=0/1B92F70, redo lsn=0/1B92F70
+db-1   | 2026-09-12 09:55:07.868 UTC [53] LOG:  database system is shut down
+db-1   |  done
+db-1   | server stopped
+db-1   | 
+db-1   | PostgreSQL init process complete; ready for start up.
+db-1   | 
+db-1   | 2026-09-12 09:55:07.969 UTC [1] LOG:  starting PostgreSQL 18.4 (Debian 18.4-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+db-1   | 2026-09-12 09:55:07.970 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1   | 2026-09-12 09:55:07.970 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1   | 2026-09-12 09:55:07.973 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1   | 2026-09-12 09:55:07.977 UTC [75] LOG:  database system was shut down at 2026-09-12 09:55:07 UTC
+db-1   | 2026-09-12 09:55:07.980 UTC [1] LOG:  database system is ready to accept connections
+db-1   | 2026-09-12 09:55:11.701 UTC [95] ERROR:  new row for relation "orders" violates check constraint "orders_customer_id_check"
+db-1   | 2026-09-12 09:55:11.701 UTC [95] DETAIL:  Failing row contains (10043, -1, 1, 1, 5000, paid, checkout, 2026-09-12 09:55:11.700064+00).
+db-1   | 2026-09-12 09:55:11.701 UTC [95] STATEMENT:  
+db-1   | 	      INSERT INTO lab.orders(customer_id, product_id, quantity, total_cents, status, source)
+db-1   | 	      VALUES ($1,$2,$3,$4,'paid','checkout') RETURNING id
+db-1   | 2026-09-12 09:55:18.980 UTC [237] ERROR:  Refusing verification writes outside disposable restore database
+db-1   | 2026-09-12 09:55:18.980 UTC [237] CONTEXT:  PL/pgSQL function inline_code_block line 5 at RAISE
+db-1   | 2026-09-12 09:55:18.980 UTC [237] STATEMENT:  -- Executed only against the generated disposable restore database.
+db-1   | 	BEGIN;
+db-1   | 	SET LOCAL statement_timeout='30s';
+db-1   | 	DO $$
+db-1   | 	DECLARE product integer; before_stock integer; generated_id bigint; max_order bigint;
+db-1   | 	BEGIN
+db-1   | 	  IF current_database() !~ '^portfolio_restore_[0-9]{8}t[0-9]{9}z_[a-f0-9]{8}$' THEN
+db-1   | 	    RAISE EXCEPTION 'Refusing verification writes outside disposable restore database';
+db-1   | 	  END IF;
+db-1   | 	  IF EXISTS (SELECT FROM lab.products WHERE stock<0) THEN RAISE EXCEPTION 'Negative inventory'; END IF;
+db-1   | 	  IF (SELECT count(*) FROM lab.dataset) <> 1 THEN RAISE EXCEPTION 'Dataset metadata missing'; END IF;
+db-1   | 	  IF (SELECT count(*) FROM lab.orders WHERE source='history') <> (SELECT row_count FROM lab.dataset) THEN
+db-1   | 	    RAISE EXCEPTION 'Historical row count does not match dataset';
+db-1   | 	  END IF;
+db-1   | 	  IF EXISTS (SELECT FROM lab.order_requests r LEFT JOIN lab.orders o ON o.id=r.order_id
+db-1   | 	    WHERE o.id IS NULL OR o.customer_id<>r.customer_id OR o.product_id<>r.product_id OR o.quantity<>r.quantity) THEN
+db-1   | 	    RAISE EXCEPTION 'Invalid idempotency mapping';
+db-1   | 	  END IF;
+db-1   | 	  IF EXISTS (SELECT FROM pg_constraint c JOIN pg_namespace n ON n.oid=c.connamespace WHERE n.nspname='lab' AND NOT c.convalidated) THEN
+db-1   | 	    RAISE EXCEPTION 'Unvalidated constraints';
+db-1   | 	  END IF;
+db-1   | 	  SELECT id,stock INTO product,before_stock FROM lab.products ORDER BY id LIMIT 1;
+db-1   | 	  IF product IS NULL THEN RAISE EXCEPTION 'No product restored'; END IF;
+db-1   | 	  -- Give the disposable fixture one unit even if original inventory is exhausted.
+db-1   | 	  UPDATE lab.products SET stock=stock+1 WHERE id=product;
+db-1   | 	  UPDATE lab.products SET stock=stock-1 WHERE id=product AND stock>=1;
+db-1   | 	  SELECT coalesce(max(id),0) INTO max_order FROM lab.orders;
+db-1   | 	  INSERT INTO lab.orders(customer_id,product_id,quantity,total_cents,status,source)
+db-1   | 	    SELECT 2147483647,id,1,price_cents,'paid','checkout' FROM lab.products WHERE id=product RETURNING id INTO generated_id;
+db-1   | 	  IF generated_id<=max_order THEN RAISE EXCEPTION 'Identity sequence behind orders'; END IF;
+db-1   | 	  UPDATE lab.orders SET status='cancelled' WHERE id=generated_id;
+db-1   | 	  UPDATE lab.products SET stock=stock+1 WHERE id=product;
+db-1   | 	  IF (SELECT stock FROM lab.products WHERE id=product)<>before_stock+1 THEN RAISE EXCEPTION 'Restored inventory write failed'; END IF;
+db-1   | 	END $$;
+db-1   | 	ROLLBACK;
+db-1   | 	SELECT json_build_object(
+db-1   | 	  'orders',(SELECT count(*) FROM lab.orders),
+db-1   | 	  'historical_orders',(SELECT count(*) FROM lab.orders WHERE source='history'),
+db-1   | 	  'paid_checkout_orders',(SELECT count(*) FROM lab.orders WHERE source='checkout' AND status='paid'),
+db-1   | 	  'cancelled_checkout_orders',(SELECT count(*) FROM lab.orders WHERE source='checkout' AND status='cancelled'),
+db-1   | 	  'products',(SELECT count(*) FROM lab.products),
+db-1   | 	  'stock_units',(SELECT sum(stock) FROM lab.products),
+db-1   | 	  'request_keys',(SELECT count(*) FROM lab.order_requests),
+db-1   | 	  'constraints_valid',true,'identity_and_write_probe','passed; transaction rolled back'
+db-1   | 	);
+db-1   | 	
+db-1   | 2026-09-12 09:55:19.084 UTC [238] ERROR:  Invalid idempotency mapping
+db-1   | 2026-09-12 09:55:19.084 UTC [238] CONTEXT:  PL/pgSQL function inline_code_block line 14 at RAISE
+db-1   | 2026-09-12 09:55:19.084 UTC [238] STATEMENT:  -- Executed only against the generated disposable restore database.
+db-1   | 	BEGIN;
+db-1   | 	SET LOCAL statement_timeout='30s';
+db-1   | 	DO $$
+db-1   | 	DECLARE product integer; before_stock integer; generated_id bigint; max_order bigint;
+db-1   | 	BEGIN
+db-1   | 	  IF current_database() !~ '^portfolio_restore_[0-9]{8}t[0-9]{9}z_[a-f0-9]{8}$' THEN
+db-1   | 	    RAISE EXCEPTION 'Refusing verification writes outside disposable restore database';
+db-1   | 	  END IF;
+db-1   | 	  IF EXISTS (SELECT FROM lab.products WHERE stock<0) THEN RAISE EXCEPTION 'Negative inventory'; END IF;
+db-1   | 	  IF (SELECT count(*) FROM lab.dataset) <> 1 THEN RAISE EXCEPTION 'Dataset metadata missing'; END IF;
+db-1   | 	  IF (SELECT count(*) FROM lab.orders WHERE source='history') <> (SELECT row_count FROM lab.dataset) THEN
+db-1   | 	    RAISE EXCEPTION 'Historical row count does not match dataset';
+db-1   | 	  END IF;
+db-1   | 	  IF EXISTS (SELECT FROM lab.order_requests r LEFT JOIN lab.orders o ON o.id=r.order_id
+db-1   | 	    WHERE o.id IS NULL OR o.customer_id<>r.customer_id OR o.product_id<>r.product_id OR o.quantity<>r.quantity) THEN
+db-1   | 	    RAISE EXCEPTION 'Invalid idempotency mapping';
+db-1   | 	  END IF;
+db-1   | 	  IF EXISTS (SELECT FROM pg_constraint c JOIN pg_namespace n ON n.oid=c.connamespace WHERE n.nspname='lab' AND NOT c.convalidated) THEN
+db-1   | 	    RAISE EXCEPTION 'Unvalidated constraints';
+db-1   | 	  END IF;
+db-1   | 	  SELECT id,stock INTO product,before_stock FROM lab.products ORDER BY id LIMIT 1;
+db-1   | 	  IF product IS NULL THEN RAISE EXCEPTION 'No product restored'; END IF;
+db-1   | 	  -- Give the disposable fixture one unit even if original inventory is exhausted.
+db-1   | 	  UPDATE lab.products SET stock=stock+1 WHERE id=product;
+db-1   | 	  UPDATE lab.products SET stock=stock-1 WHERE id=product AND stock>=1;
+db-1   | 	  SELECT coalesce(max(id),0) INTO max_order FROM lab.orders;
+db-1   | 	  INSERT INTO lab.orders(customer_id,product_id,quantity,total_cents,status,source)
+db-1   | 	    SELECT 2147483647,id,1,price_cents,'paid','checkout' FROM lab.products WHERE id=product RETURNING id INTO generated_id;
+db-1   | 	  IF generated_id<=max_order THEN RAISE EXCEPTION 'Identity sequence behind orders'; END IF;
+db-1   | 	  UPDATE lab.orders SET status='cancelled' WHERE id=generated_id;
+db-1   | 	  UPDATE lab.products SET stock=stock+1 WHERE id=product;
+db-1   | 	  IF (SELECT stock FROM lab.products WHERE id=product)<>before_stock+1 THEN RAISE EXCEPTION 'Restored inventory write failed'; END IF;
+db-1   | 	END $$;
+db-1   | 	ROLLBACK;
+db-1   | 	SELECT json_build_object(
+db-1   | 	  'orders',(SELECT count(*) FROM lab.orders),
+db-1   | 	  'historical_orders',(SELECT count(*) FROM lab.orders WHERE source='history'),
+db-1   | 	  'paid_checkout_orders',(SELECT count(*) FROM lab.orders WHERE source='checkout' AND status='paid'),
+db-1   | 	  'cancelled_checkout_orders',(SELECT count(*) FROM lab.orders WHERE source='checkout' AND status='cancelled'),
+db-1   | 	  'products',(SELECT count(*) FROM lab.products),
+db-1   | 	  'stock_units',(SELECT sum(stock) FROM lab.products),
+db-1   | 	  'request_keys',(SELECT count(*) FROM lab.order_requests),
+db-1   | 	  'constraints_valid',true,'identity_and_write_probe','passed; transaction rolled back'
+db-1   | 	);
+db-1   | 	
+db-1   | 2026-09-12 09:55:19.091 UTC [73] LOG:  checkpoint starting: immediate force wait
+db-1   | 2026-09-12 09:55:19.092 UTC [73] LOG:  checkpoint complete: wrote 232 buffers (1.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.002 s, sync=0.001 s, total=0.002 s; sync files=73, longest=0.001 s, average=0.000 s; distance=7203 kB, estimate=7203 kB; lsn=0/229BBD0, redo lsn=0/229BB78

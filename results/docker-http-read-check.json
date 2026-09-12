@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "executed_at": "2026-09-11T14:13:25.237Z",
+  "checks": [
+    {
+      "route": "/health",
+      "status": 200,
+      "body": {
+        "status": "ready"
+      }
+    },
+    {
+      "route": "/orders?customer_id=1",
+      "status": 200,
+      "rows": 50
+    },
+    {
+      "route": "/orders",
+      "status": 400,
+      "body": {
+        "error": "customer_id must be an integer in [1, 2147483647]"
+      }
+    },
+    {
+      "route": "/missing",
+      "status": 404,
+      "body": {
+        "error": "Not found"
+      }
+    }
+  ]
+}

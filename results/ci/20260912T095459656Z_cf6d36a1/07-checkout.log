@@ -1,0 +1,22 @@
+
+> postgres-order-lab@1.0.0 test:checkout
+> node --test test/checkout.test.mjs
+
+TAP version 13
+# Verified HTTP: create 201, replay 200, conflict 409, cancellation and repeat cancellation 200; inventory restored.
+# Verified: 16 create retries -> 1 order; 16 cancels -> 1 restoration; payload conflict, invalid key, wrong customer, failed rollback, history guard, cancelled replay.
+# Subtest: concurrent retries and cancellations preserve one order and one stock restoration
+ok 1 - concurrent retries and cancellations preserve one order and one stock restoration
+  ---
+  duration_ms: 347.234897
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 462.451596

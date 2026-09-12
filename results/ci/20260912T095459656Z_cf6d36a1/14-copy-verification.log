@@ -1,0 +1,11 @@
+docker.exe :  portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Copying C:\Users\from1\Documents\Codex\2026-09-11\gp
+t\outputs\postgres-order-lab\sql\verify-recovery.sql to portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1:/tmp/verif
+y-recovery.sql
+위치 C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\postgres-order-lab\scripts\Test-Portfolio.ps1:27 문자:11
++     try { & $dockerPath @prefix @Arguments *> $logPath; $exitCode=$gl ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( portfolio-test...fy-recovery.sql:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1 Copied C:\Users\from1\Documents\Codex\2026-09-11\gpt\outputs\post
+gres-order-lab\sql\verify-recovery.sql to portfolio-test-08ec80f206154c60b6b2465cd4a0fbc8-db-1:/tmp/verify-recovery.sql
