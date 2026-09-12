@@ -1,5 +1,9 @@
 # 자동 회귀 검증
 
+## GitHub 원격 실행 완료
+
+커밋 `eb000b11d716cea36a45b023e30383c652f07da8`의 [첫 원격 실행](https://github.com/KIMU-02/TestHosting/actions/runs/34707666746)에서 Windows 종료 코드 검사와 Ubuntu Docker 전체 검증이 모두 success로 완료됐으며 artifact 저장도 통과했습니다. 아래 원격 실행 미확인 기록은 업로드 이전의 이력입니다. 최신 상태는 README의 동적 배지에서 확인할 수 있습니다.
+
 ## 최신 완료 결과
 
 2026-09-12 18:54:59~18:55:23 KST, 사용자 Docker에서 전체 파이프라인이 통과했습니다. [원본 보고서](../results/ci/20260912T095459656Z_cf6d36a1/report.json)의 15개 검증 단계와 로그 수집·정리 모두 exit_code=0, status=passed, cleanup=removed입니다.
