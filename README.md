@@ -62,7 +62,6 @@ docker compose up -d --wait api
 
 종료는 `docker compose down`이며 DB 볼륨은 남습니다. `docker compose down -v`는 DB 볼륨까지 삭제하므로 데이터를 버릴 때만 사용합니다.
 
-
 ## 핵심 설계 판단
 
 ### 재고가 음수가 아니어도 초과 판매될 수 있다

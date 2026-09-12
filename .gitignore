@@ -18,3 +18,8 @@ results/recovery/*
 results/recovery/20260912T100701681Z_0344939e/*
 !results/recovery/20260912T100701681Z_0344939e/report.json
 *.dump
+
+# Personal preparation stays local
+/docs/interview.md
+/docs/demo.md
+/private-interview-notes/
